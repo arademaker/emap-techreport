@@ -1,0 +1,56 @@
+% this is my first package
+% 
+% (c) Buffalo Bill
+% LPPL LaTeX Public Project License
+%  
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{emap}
+  [2011/01/11 v0.01 LaTeX package for EMAp]
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{lmodern}
+\usepackage{pgffor}
+\usepackage{times} 
+
+\def\hi{Hello, this is EMAp package}
+\newcommand{\headerauthor}[1]{\gdef\myheaderauthor{#1}}
+\newcommand{\headertitle}[1]{\gdef\myheadertitle{#1}}
+\newcommand{\headeryear}[1]{\gdef\myyear{#1}}
+
+\newcommand{\cover}{
+\thispagestyle{empty}
+\begin{tikzpicture}[overlay,
+  remember picture,
+  mynode/.style={left, % fill=blue!10, 
+    minimum height=2em,text width=.9\textwidth}]
+
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{dblue}{RGB}{28,47,103}
+
+% \draw[step=1] (current page.south west) grid (current page.north east);
+% \draw[fill=red] (0,0) circle (2mm);
+% \fill[blue!10!gray] (current page.south west) rectangle (current page.north east);
+
+\node[mynode] (title) at ($(current page.north east)+(-0.5,-6)$) {\fontsize{25}{30}\selectfont \textbf{\myheadertitle}};
+
+% \node[mynode] at ($(current page.north east)+(-0.5,-10)$) {\fontsize{18}{28}\selectfont \textsc{\myheaderauthor}};
+% http://stackoverflow.com/questions/2561791/iteration-in-latex
+\node[mynode] (author) at ($(title.south east)+(0,-2)$) {\fontsize{20}{25}\selectfont 
+  \foreach \n in \myheaderauthor{\n\par}};
+
+\node[align=left, above right, text width=10cm] (report) at ($(title.north west)+(0,1) $)
+  {\fontsize{20}{25}\selectfont \textbf{EMAp Technical Reports, \myyear}};
+
+\draw[draw=dblue,fill=dblue] (report.north west)+(-1.2,0) rectangle ($(author.south west)+(-0.8,0)$);
+
+% \node[text=dblue, align=center, above, text width=10cm] at ($(current page.center)+(0,-8.5)$) 
+%   {\fontsize{15}{18}\selectfont \textbf{EMAp Technical Report, \myyear}};
+\node at ($(current page.center)+(0,-11)$) {\includegraphics[scale=0.3,width=.5\textwidth]{emap-logo.pdf}};
+\end{tikzpicture}
+\clearpage
+}
+
+\endinput
+%%
+%% End of file `mypackage.sty'
