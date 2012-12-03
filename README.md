@@ -11,39 +11,36 @@ pronto!
 
 - It is not necessary but I recommend in the first line the following
   declaration:
-
-```
-\documentclass[a4paper,twocolumn]{article}
-```
+  ```
+  \documentclass[a4paper,twocolumn]{article}
+  ```
 
 - Include the package ```emap.sty``` in the preambule of your LaTeX
   file.
-
-```
-\usepackage{emap}
-```
+  ```
+  \usepackage{emap}
+  ```
 
 - Right after the ```\begin{document}```, include the following
   commands:
+  ```
+  \headerauthor{Val\'eria de Paiva,Alexandre Rademaker,Gerard de Melo}
+  \headertitle{OpenWordNet-PT: an open Brazilian Wordnet for reasoning}
+  \headeryear{2012}
+  \cover
+  ```
+  Note that you must use comma between author's name.
 
-```
-\headerauthor{Val\'eria de Paiva,Alexandre Rademaker,Gerard de Melo}
-\headertitle{OpenWordNet-PT: an open Brazilian Wordnet for reasoning}
-\headeryear{2012}
-\cover
-```
 
-## How to publish it in the FGV Digital Library? 
+## How to publish your paper as an EMAp Techreports?
 
 The EMAP Techreports is available at:
-
 http://bibliotecadigital.fgv.br/dspace/handle/10438/7823
 
 Instructions:
-
 http://www.youtube.com/watch?v=l9U-U_-jqRM
 
-## TODO
+## TODO (Portuguese)
 
 - Fazer o logo em tikz/pgf
 
@@ -54,7 +51,6 @@ http://www.youtube.com/watch?v=l9U-U_-jqRM
 
 - Algumas outras melhorias e otimizações no código LaTeX são possíveis
   também.
-
 
 ## Author
 
