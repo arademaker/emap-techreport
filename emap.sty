@@ -28,13 +28,10 @@
 \definecolor{orange}{rgb}{1,0.5,0}
 \definecolor{dblue}{RGB}{28,47,103}
 
-% \draw[step=1] (current page.south west) grid (current page.north east);
-% \draw[fill=red] (0,0) circle (2mm);
 % \fill[blue!10!gray] (current page.south west) rectangle (current page.north east);
 
 \node[mynode] (title) at ($(current page.north east)+(-0.5,-6)$) {\fontsize{25}{30}\selectfont \textbf{\myheadertitle}};
 
-% \node[mynode] at ($(current page.north east)+(-0.5,-10)$) {\fontsize{18}{28}\selectfont \textsc{\myheaderauthor}};
 % http://stackoverflow.com/questions/2561791/iteration-in-latex
 \node[mynode] (author) at ($(title.south east)+(0,-2)$) {\fontsize{20}{25}\selectfont 
   \foreach \n in \myheaderauthor{\n\par}};
